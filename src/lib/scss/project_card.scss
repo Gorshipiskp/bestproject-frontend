@@ -1,3 +1,85 @@
+<<<<<<< HEAD
+@use "$lib/scss/config";
+
+$border-radius-card: 28px;
+
+.project_card {
+  @include config.gradient-blackout($border-radius-card);
+
+  display: grid;
+  grid-template-areas:
+                "Image"
+                "Title"
+                "Description";
+  grid-template-rows: 10fr 2fr 6fr;
+  max-height: config.dclamp(430, 480, px);
+  padding: 0;
+  border-radius: $border-radius-card;
+  justify-items: center;
+  align-items: center;
+  background: #4e4e4e55;
+  transition: 0.2s;
+
+  @media screen and (max-width: config.$md) {
+    max-height: config.dclamp(300, 350, px);
+    width: 100%;
+  }
+
+  &:hover {
+    background: #91919144;
+    cursor: pointer;
+    transform: scale(1.01);
+  }
+
+  .project_card_logo {
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: Image;
+    overflow: hidden;
+    border-radius: $border-radius-card $border-radius-card 0 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      height: 80%;
+      border-radius: 50%;
+    }
+  }
+
+  .project_card_title {;
+    @include config.text-shadow(0.05);
+
+    grid-area: Title;
+    font-size: config.auto-dclamp(2.4, rem);
+    font-weight: 700;
+    margin: 4px 0 0;
+
+    @media screen and (max-width: config.$md) {
+      font-size: config.auto-dclamp(2.1, rem);
+    }
+  }
+
+  .project_card_description {
+    @include config.text-shadow(0.1);
+
+    grid-area: Description;
+    line-height: 1.4;
+    display: inline;
+    align-self: start;
+    font-size: config.auto-dclamp(0.9, rem);
+    margin-top: 6px;
+    padding: 0 18px 0 18px;
+    text-align: center;
+
+    @media screen and (max-width: config.$md) {
+      font-size: config.auto-dclamp(0.8, rem);
+      font-weight: 450;
+    }
+  }
+}
+=======
 @use "$lib/scss/config";
 
 $border-radius-card: 28px;
@@ -64,3 +146,4 @@ $border-radius-card: 28px;
     @include config.text-shadow(0.1);
   }
 }
+>>>>>>> origin/main

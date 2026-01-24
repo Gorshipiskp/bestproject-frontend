@@ -1,3 +1,51 @@
+<<<<<<< HEAD
+@use "$lib/scss/config";
+
+.tags {
+  grid-area: Tags;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 8px;
+  padding: 6px 16px;
+
+  .tag_title {
+    font-size: config.auto-dclamp(1.7, rem);
+    font-weight: 800;
+    background: #161616;
+    padding: 6px 16px;
+    margin: 0;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .tags_badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    @media screen and (max-width: config.$md) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      height: 100%;
+    }
+
+    .tag_badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: config.auto-dclamp(0.95, rem);
+      background: #161616;
+      padding: 6px 16px;
+      margin: 0 0 6px 0;
+      border-radius: 6px;
+      text-align: center;
+      color: config.$muted;
+      font-weight: 400;
+    }
+  }
+=======
 @use "$lib/scss/config";
 
 .tags {
@@ -34,4 +82,5 @@
       font-weight: 350;
     }
   }
+>>>>>>> origin/main
 }

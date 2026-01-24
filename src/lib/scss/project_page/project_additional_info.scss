@@ -1,3 +1,101 @@
+<<<<<<< HEAD
+@use "$lib/scss/config";
+
+
+.additional_info_content {
+  @include config.project-page-block();
+
+  grid-area: AdditionalInfo;
+  display: grid;
+  gap: config.$gap;
+
+  grid-template-areas:
+          "Title Title"
+          "Technologies Technologies"
+          "SmallInfo SmallInfo"
+          "Tags Tags";
+  grid-template-rows: auto auto auto 1fr;
+  grid-template-columns: auto auto;
+  align-items: start;
+
+  @media screen and (max-width: config.$md) {
+    grid-template-areas:
+            "Title"
+            "Technologies"
+            "SmallInfo"
+            "Tags";
+    grid-template-rows: auto auto auto 1fr;
+    grid-template-columns: auto;
+  }
+
+  h2 {
+    grid-area: Title;
+    font-size: config.auto-dclamp(1.7, rem);
+
+    @media screen and (max-width: config.$md) {
+      font-size: config.auto-dclamp(1.5, rem);
+    }
+  }
+
+  .project_technologies {
+    grid-area: Technologies;
+    display: grid;
+    grid-template-areas: "Backend Infrastructure"
+                         "Frontend Design";
+    grid-template-columns: 1fr 1fr;
+    gap: config.$gap;
+    padding: 6px 16px;
+
+    @media screen and (max-width: config.$md) {
+      grid-template-areas: "Backend"
+                           "Infrastructure"
+                           "Frontend"
+                           "Design";
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .small_tech_info {
+    grid-area: SmallInfo;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: baseline;
+    gap: config.$gap config.$gap - 4;
+    padding: 6px 16px;
+    box-sizing: content-box;
+
+    @media screen and (max-width: config.$md) {
+      grid-template-columns: 1fr;
+    }
+
+    .small_info_field {
+      border-radius: 6px;
+      padding: 0;
+
+      h3 {
+        background: #161616;
+        padding: 6px 16px;
+        margin: 0 0 6px 0;
+        border-radius: 6px;
+        text-align: center;
+      }
+
+      div {
+        background: #161616;
+        padding: 6px 12px;
+        text-align: center;
+        border-radius: 6px;
+
+        .info_field, .info_field span {
+          font-size: config.auto-dclamp(0.95, rem);
+          font-weight: 400;
+          color: config.$muted;
+        }
+      }
+    }
+  }
+}
+=======
 @use "$lib/scss/config";
 
 
@@ -66,3 +164,4 @@
     }
   }
 }
+>>>>>>> origin/main

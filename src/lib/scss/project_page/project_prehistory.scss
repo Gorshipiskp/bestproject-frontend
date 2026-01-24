@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+@use "$lib/scss/config";
+
+.prehistory {
+  @include config.custom-scrollbar();
+  @include config.project-page-block();
+
+  grid-area: PreHistory;
+  overflow-y: auto;
+  max-height: 45vh;
+
+  p {
+    margin: 6px 0 0 12px;
+
+    &:nth-of-type(1) {
+      margin-top: 8px;
+    }
+  }
+=======
 @use "$lib/scss/config";
 
 .prehistory {
@@ -14,4 +33,5 @@
       margin-top: 12px;
     }
   }
+>>>>>>> origin/main
 }

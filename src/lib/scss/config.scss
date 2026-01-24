@@ -1,3 +1,175 @@
+<<<<<<< HEAD
+@use "sass:math";
+@use "sass:string";
+
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+
+$text_color: #e8e8e8;
+$text_color_secondary: #e9e9e9;
+
+$text_font: Montserrat, Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+
+$dark: #121212;
+$dark_secondary: #212121;
+$grey_secondary: #2c2c2c;
+
+$b_accent: #00bfff;
+$b_accent_hover: #1ac4ff;
+
+$r_accent: #ff4c4c;
+$r_accent_hover: #ff6b6b;
+
+$sep_color: #2a2a2a;
+$gap: 12px;
+$muted: rgb(160, 165, 165);
+
+$xs: 380px;
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$slg: 1280px;
+$fhd: 1920px;
+
+$radius: 8px;
+
+$d-max: math.div($fhd, 1px);
+$d-min: math.div($md, 1px);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+
+  @media (max-width: $md) {
+    font-size: 15px;
+  }
+}
+
+@function auto-dclamp($max, $unit: px, $coef: 0.9, $viewport-min: $d-min, $viewport-max: $d-max) {
+  $interpolated_min: $max * $coef;
+
+  @return dclamp($interpolated_min, $max, $unit, $viewport-min, $viewport-max);
+}
+
+@function dclamp($min, $max, $unit: px, $viewport-min: $d-min, $viewport-max: $d-max) {
+  @if $unit == fr {
+    @error "fr не поддерживается внутри calc(). Используй только px, vw, vh, rem";
+  }
+
+  $slope: calc(($max - $min) / ($viewport-max - $viewport-min));
+  $formula: "#{$slope} * (var(--current-width) - #{$viewport-min}) * 1#{$unit}";
+
+  @return clamp(#{$min}#{$unit}, calc(#{$formula}), #{$max}#{$unit});
+}
+
+@mixin custom-scrollbar() {
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 12px;
+  }
+}
+
+@mixin gradient-blackout($black-border-radius: 0, $gradient: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.15) 90%)) {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: $gradient;
+    border-radius: $black-border-radius;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+@mixin text-shadow($strongness: 0.1) {
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, $strongness);
+}
+
+@mixin border-gradient($width, $border-radius, $gradient: #00000000) {
+  border: $width solid transparent;
+  border-radius: $border-radius;
+  background-image: linear-gradient(white, white), $gradient;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+@mixin project-page-block() {
+  @include border-gradient(3px, 8px);
+
+  overflow: auto;
+  margin-top: 4px;
+
+  padding: 0;
+  border-radius: 8px;
+
+  h2 {
+    @include text-shadow(0.3);
+
+    font-size: auto-dclamp(1.75, rem);
+    margin: 0;
+    padding: 6px 0 4px 12px;
+    border-radius: 0 6px 6px 0;
+    font-weight: 750;
+
+    @media screen and (max-width: $md) {
+      font-size: auto-dclamp(1.6, rem);
+    }
+  }
+
+  div {
+    padding-bottom: 4px;
+
+    &:nth-of-type(1) {
+      h3 {
+        margin-top: 4px;
+      }
+    }
+
+    h3 {
+      @include text-shadow(0.4);
+
+      font-size: auto-dclamp(1.5, rem);
+      margin: 0 0 8px 0;
+      padding: 6px 0 4px 12px;
+      border-radius: 0 6px 6px 0;
+      background: #00000044;
+
+      @media screen and (max-width: $md) {
+        font-size: auto-dclamp(1.3, rem);
+      }
+    }
+  }
+
+  p {
+    padding: 0 6px 4px 0;
+    font-size: auto-dclamp(1, rem);
+    margin: 2px 0 0 12px;
+    font-weight: 400;
+
+    @media screen and (max-width: $md) {
+      font-size: auto-dclamp(0.9, rem);
+    }
+  }
+}
+=======
 @use "sass:math";
 @use "sass:string";
 
@@ -136,3 +308,4 @@ $d_diff: $d_max - $d_min;
     font-weight: 300;
   }
 }
+>>>>>>> origin/main

@@ -1,3 +1,55 @@
+<<<<<<< HEAD
+@use "$lib/scss/config";
+
+.header {
+  display: grid;
+  grid-template-areas: "PageText Empty Nav";
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background: config.$dark_secondary;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-radius: 4px;
+
+  @media screen and (max-width: config.$md) {
+    padding: 10px 12px;
+  }
+
+  .logo {
+    font-size: config.auto-dclamp(1, rem);
+    font-weight: 600;
+
+    @media screen and (max-width: config.$md) {
+      font-size: config.auto-dclamp(0.85, rem);
+    }
+  }
+
+  .links {
+    grid-area: Nav;
+    display: flex;
+    gap: config.$gap + 8px;
+    align-items: center;
+
+    & > a {
+      font-size: config.auto-dclamp(0.95, rem);
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+
+      @media screen and (max-width: config.$md) {
+        font-size: config.auto-dclamp(0.85, rem);
+      }
+    }
+  }
+
+  .page_text {
+    grid-area: PageText;
+  }
+}
+=======
 @use "$lib/scss/config";
 
 .header {
@@ -23,3 +75,4 @@
     grid-area: PageText;
   }
 }
+>>>>>>> origin/main

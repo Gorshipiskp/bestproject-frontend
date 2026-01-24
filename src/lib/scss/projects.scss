@@ -1,3 +1,32 @@
+<<<<<<< HEAD
+@use "$lib/scss/config";
+
+
+@mixin projects_div($sizeminmax) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($sizeminmax, 1fr));
+  gap: 32px;
+  padding: 24px 32px;
+
+  @media screen and (max-width: config.$md) {
+    padding: config.$gap;
+    grid-template-columns: repeat(auto-fill, minmax($sizeminmax - 100px, 1fr));
+  }
+}
+
+.main_content_projects {
+  .main_projects {
+    @include projects_div(325px);
+  }
+
+  .big_projects {
+    @include projects_div(300px);
+  }
+
+  .medium_projects {
+    @include projects_div(300px);
+  }
+=======
 @mixin projects_div($sizeminmax) {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax($sizeminmax, 1fr));
@@ -17,4 +46,5 @@
   .medium_projects {
     @include projects_div(300px);
   }
+>>>>>>> origin/main
 }
