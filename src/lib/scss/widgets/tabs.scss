@@ -9,6 +9,11 @@
                        "TabContent";
   grid-template-rows: 30px auto;
 
+  @media (max-width: config.$md) {
+      width: 100%;
+    padding: 4px 4px;
+  }
+
   .tabs_headers {
     grid-area: Tabs;
     display: flex;

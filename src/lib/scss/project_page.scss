@@ -75,15 +75,23 @@
       display: inline;
       z-index: 2;
       border-radius: 50%;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+
+      @media screen and (max-width: config.$md) {
+        height: 80%;
+      }
     }
 
     h1 {
+      @include config.text-shadow();
+
       display: inline;
       font-size: config.auto-dclamp(2.6, rem);
       font-weight: 750;
 
-      @include config.text-shadow();
+      @media screen and (max-width: config.$md) {
+        font-size: config.auto-dclamp(1.7, rem);
+      }
     }
   }
 
