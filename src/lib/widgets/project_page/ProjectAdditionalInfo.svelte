@@ -10,13 +10,13 @@
     const backgroundImage: string = `linear-gradient(#232323, #232323), ${accentColor}`
 </script>
 
-<div style="background-image: {backgroundImage}" class="additional_info_content">
+<div class="additional_info_content" style="background-image: {backgroundImage}">
     <h2 style="background: {accentColor}">Техническая информация</h2>
     <div class="project_technologies">
-        <ProjectTechnologiesBlock title="Backend" technologies={projectInfo.technologies?.backend}/>
-        <ProjectTechnologiesBlock title="Frontend" technologies={projectInfo.technologies?.frontend}/>
-        <ProjectTechnologiesBlock title="Infrastructure" technologies={projectInfo.technologies?.infrastructure}/>
-        <ProjectTechnologiesBlock title="Design" technologies={projectInfo.technologies?.design}/>
+        <ProjectTechnologiesBlock technologies={projectInfo.technologies?.backend} title="Backend"/>
+        <ProjectTechnologiesBlock technologies={projectInfo.technologies?.frontend} title="Frontend"/>
+        <ProjectTechnologiesBlock technologies={projectInfo.technologies?.infrastructure} title="Infrastructure"/>
+        <ProjectTechnologiesBlock technologies={projectInfo.technologies?.design} title="Design"/>
     </div>
 
     <AdditionalSmallInfo projectInfo={projectInfo}/>

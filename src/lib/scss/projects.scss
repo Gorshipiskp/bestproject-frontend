@@ -1,28 +1,63 @@
 @use "$lib/scss/config";
 
 
-@mixin projects_div($sizeminmax) {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax($sizeminmax, 1fr));
-  gap: 32px;
-  padding: 24px 32px;
-
-  @media screen and (max-width: config.$md) {
-    padding: config.$gap;
-    grid-template-columns: repeat(auto-fill, minmax($sizeminmax - 100px, 1fr));
-  }
-}
-
 .main_content_projects {
-  .main_projects {
-    @include projects_div(325px);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @media screen and (max-width: config.$sm) {
+    gap: 8px;
   }
 
-  .big_projects {
-    @include projects_div(300px);
+  .projects_category {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 32px;
+    padding: 24px 32px;
+
+    @media screen and (max-width: config.$sm) {
+      padding: 4px;
+      gap: config.$gap;
+      grid-template-columns: repeat(1, 1fr);
+      justify-items: center;
+    }
   }
 
-  .medium_projects {
-    @include projects_div(300px);
+  .project_category_header {
+    padding: config.$gap;
+    background: color-mix(in srgb, config.$dark 60%, black);
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 0 0;
+    grid-template-areas:
+            "Title"
+            "Description";
+
+    @media screen and (max-width: config.$sm) {
+      gap: 4px;
+    }
+
+    .project_category_title {
+      @include config.text-shadow(0.1);
+      grid-area: Title;
+      font-size: config.auto-dclamp(2.5, rem);
+      font-weight: 750;
+
+      @media screen and (max-width: config.$sm) {
+        font-size: config.auto-dclamp(2, rem);
+      }
+    }
+
+    .project_category_description {
+      @include config.text-shadow(0.1);
+      grid-area: Description;
+      font-size: config.auto-dclamp(1, rem);
+      color: config.$muted;
+
+      @media screen and (max-width: config.$sm) {
+        font-size: config.auto-dclamp(0.9, rem);
+      }
+    }
   }
 }

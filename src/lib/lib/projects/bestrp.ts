@@ -1,34 +1,25 @@
 import type {ProjectInfoType} from "../types";
 
 export const BestRP: ProjectInfoType = {
-    "name": "bestrp",
     "available": false,
-    "display_name": "BestRP",
-    "stack": [
-        "Garry's mod",
-        "Lua",
-        "DarkRP",
-        "Sqlite3"
-    ],
-    "technologies": {
-        "backend": [],
-        "frontend": [],
-        "design": [],
-        "infrastructure": []
-    },
-    "website_link": false,
-    "github_link": false,
-    "release_year": 2021,
     "close_year": 2022,
     "creators": [],
-    "tags": [
-        "WIP",
-        "Old"
-    ],
+    "description": {},
+    "description_short": "",
+    "display_name": "BestRP",
+    "features": {},
+    "github_link": false,
+    "gradient": [[28, 29, 30], [38, 39, 40]],
     "license": "Unlicensed",
-    "tag_development": "In Progress",
-    "size": "Big",
-    "using": "",
+    "media": {
+        "logo": "[] MAIN LOGO NEW.png"
+    },
+    "monetized": "Planned",
+    "name": "bestrp",
+    "prehistory": [
+        "..."
+    ],
+    "release_year": 2021,
     "roadmap": {
         "2025.09": [[
             "bestrp", false
@@ -37,15 +28,24 @@ export const BestRP: ProjectInfoType = {
             "bestrp", false
         ]]
     },
-    "features": {},
-    "monetized": "Planned",
-    "media": {
-        "logo": "[] MAIN LOGO NEW.png"
+    "size": "Medium",
+    "stack": [
+        "Garry's mod",
+        "Lua",
+        "DarkRP",
+        "Sqlite3"
+    ],
+    "tag_development": "In Progress",
+    "tags": [
+        "WIP",
+        "Old"
+    ],
+    "technologies": {
+        "backend": [],
+        "frontend": [],
+        "design": [],
+        "infrastructure": []
     },
-    "gradient": [[28, 29, 30], [38, 39, 40]],
-    "description_short": "",
-    "description": {},
-    "prehistory": [
-        "..."
-    ]
+    "using": "",
+    "website_link": false
 }

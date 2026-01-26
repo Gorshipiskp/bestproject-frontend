@@ -19,7 +19,7 @@
 </style>
 
 <div>
-    <div style="width: {width}; height: {height}" class="placeholder">
+    <div class="placeholder" style="width: {width}; height: {height}">
         <Spinner sizeCoef={spinnerSizeCoef}/>
     </div>
 </div>

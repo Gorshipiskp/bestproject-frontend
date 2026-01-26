@@ -3,7 +3,7 @@
 </script>
 
 <nav class="header">
-    <a href="/" class="logo">Мои проекты</a>
+    <a class="logo" href="/">Мои проекты</a>
     <div class="links">
         <a href="/">Проекты</a>
         <a href="/about">Обо мне</a>

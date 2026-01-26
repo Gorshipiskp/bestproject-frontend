@@ -12,16 +12,19 @@
 
 <div class="features" style="background-image: {backgroundImage}">
     <h2 style="background: {accentColor}">Особенности</h2>
-    {#each Object.entries(features) as [featureID, {featureName, description}], i (i)}
-        <div>
-            <h3>{featureName}</h3>
 
-            {#each description as paragraph, i (i)}
-                <p>
-                    <MarkedUpText textToMarkup={paragraph}/>
-                </p>
-            {/each}
-        </div>
-    {/each}
+    <div class="text_content">
+        {#each Object.entries(features) as [featureID, {featureName, description}], i (i)}
+            <div>
+                <h3>{featureName}</h3>
+
+                {#each description as paragraph, i (i)}
+                    <p>
+                        <MarkedUpText textToMarkup={paragraph}/>
+                    </p>
+                {/each}
+            </div>
+        {/each}
+    </div>
 </div>
 

@@ -29,8 +29,9 @@
   display: grid;
   width: 100%;
   padding: 8px;
-  gap: 8px 24px;
-  grid-template-columns: 10fr 9fr;
+
+  gap: config.$gap - 4px 40px;
+  grid-template-columns: 10fr 8fr;
   grid-template-rows: 80px auto 40vh 40vh auto auto auto;
   grid-template-areas: "Title Media"
                        "Stack Media"
@@ -40,7 +41,20 @@
                        "Empty AdditionalInfo"
                        "Roadmap Roadmap";
 
-  @media screen and (max-width: config.$md) {
+
+  &.no_tabs {
+    grid-template-rows: 80px auto 40vh 40vh auto auto;
+    grid-template-areas: "Title AdditionalInfo"
+                       "Stack AdditionalInfo"
+                       "Description AdditionalInfo"
+                       "Features AdditionalInfo"
+                       "PreHistory Empty2"
+                       "Empty Empty"
+                       "Roadmap Roadmap";
+  }
+
+  @media screen and (max-width: config.$sm) {
+    padding: 4px 2px;
     grid-template-columns: auto;
     grid-template-rows: 80px auto auto auto auto auto auto auto;
     grid-template-areas:
@@ -52,11 +66,26 @@
             "AdditionalInfo"
             "Roadmap"
             "Media";
+
+
+    &.no_tabs {
+      grid-template-rows: 80px auto auto auto auto auto auto auto;
+      grid-template-areas:
+            "Title"
+            "Stack"
+            "Description"
+            "Features"
+            "PreHistory"
+            "AdditionalInfo"
+            "Roadmap";
+    }
   }
 
   .title {
     $border-radius-title: 6px;
     $blackout-gradient: linear-gradient(90deg, #00000000 0%, #00000010 10%, #00000000 75%);
+
+    @include config.gradient-blackout($border-radius-title, $blackout-gradient);
 
     grid-area: Title;
 
@@ -68,8 +97,6 @@
     margin: 4px 0;
     border-radius: $border-radius-title;
 
-    @include config.gradient-blackout($border-radius-title, $blackout-gradient);
-
     img {
       height: 100%;
       display: inline;
@@ -77,7 +104,7 @@
       border-radius: 50%;
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 
-      @media screen and (max-width: config.$md) {
+      @media screen and (max-width: config.$sm) {
         height: 80%;
       }
     }
@@ -88,9 +115,11 @@
       display: inline;
       font-size: config.auto-dclamp(2.6, rem);
       font-weight: 750;
+      margin: 0;
 
-      @media screen and (max-width: config.$md) {
-        font-size: config.auto-dclamp(1.7, rem);
+      @media screen and (max-width: config.$sm) {
+        font-size: config.auto-dclamp(1.95, rem);
+        word-break: break-word;
       }
     }
   }
@@ -98,12 +127,13 @@
   .project_stack {
     grid-area: Stack;
     display: flex;
-    align-items: center;
+
+    align-items: start;
     justify-content: space-between;
-    gap: 8px;
+    gap: config.$gap - 4px;
     align-self: start;
 
-    @media screen and (max-width: config.$md) {
+    @media screen and (max-width: config.$sm) {
       flex-direction: column;
     }
 
@@ -112,11 +142,17 @@
       border-radius: 6px;
       background: #ffffff0b;
       list-style: none;
-      font-size: config.auto-dclamp(1, rem);
+
+      font-size: config.auto-dclamp(0.95, rem);
       font-weight: 340;
       color: #2ac8ff;
       font-family: monospace;
       align-self: start;
+
+
+      @media screen and (max-width: config.$sm) {
+        font-size: config.auto-dclamp(0.8, rem);
+      }
     }
 
     .stack_list {
@@ -130,7 +166,7 @@
       margin: 0;
 
       li {
-        padding: 6px 12px;
+        padding: 4px 8px;
         border-radius: 6px;
         background: #ffffff0b;
         list-style: none;
@@ -140,19 +176,23 @@
         }
 
         code {
-          font-size: config.dclamp(14, 16);
+          font-size: config.auto-dclamp(0.85, rem);
           color: limegreen;
           cursor: default;
+
+          @media screen and (max-width: config.$sm) {
+            font-size: config.auto-dclamp(0.7, rem);
+          }
         }
       }
     }
   }
 
   iframe {
+    @include config.border-gradient(2px, 12px);
+
     width: 99%;
     height: 99%;
     grid-area: Media;
-
-    @include config.border-gradient(2px, 12px)
   }
 }

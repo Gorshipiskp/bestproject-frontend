@@ -21,4 +21,4 @@
     }
 </style>
 
-<span style="width: {50 * sizeCoef}px; height: {50 * sizeCoef}px; border-width: {5 * sizeCoef}px" class="loader"></span>
+<span class="loader" style="width: {50 * sizeCoef}px; height: {50 * sizeCoef}px; border-width: {5 * sizeCoef}px"></span>

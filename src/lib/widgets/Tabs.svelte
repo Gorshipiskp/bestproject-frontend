@@ -13,9 +13,8 @@
 <div class="tabs_wrapper">
     <div class="tabs_headers">
         {#each Object.keys(tabs) as tabKey, i (i)}
-            {@const isActive = i === curIndex ? "tab_active" : "tab_inactive"}
-
-            <button class="tab {isActive}" on:click={() => curIndex = i}>
+            <button class="tab" class:tab_active={i === curIndex} class:tab_inactive={i !== curIndex}
+                    on:click={() => curIndex = i}>
                 <span>{tabKey}</span>
             </button>
         {/each}

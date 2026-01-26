@@ -4,6 +4,9 @@
 .additional_info_content {
   @include config.project-page-block();
 
+  @include config.custom-scrollbar-horizontal();
+
+
   grid-area: AdditionalInfo;
   display: grid;
   gap: config.$gap;
@@ -17,7 +20,7 @@
   grid-template-columns: auto auto;
   align-items: start;
 
-  @media screen and (max-width: config.$md) {
+  @media screen and (max-width: config.$sm) {
     grid-template-areas:
             "Title"
             "Technologies"
@@ -31,7 +34,7 @@
     grid-area: Title;
     font-size: config.auto-dclamp(1.7, rem);
 
-    @media screen and (max-width: config.$md) {
+    @media screen and (max-width: config.$sm) {
       font-size: config.auto-dclamp(1.5, rem);
     }
   }
@@ -45,7 +48,7 @@
     gap: config.$gap;
     padding: 6px 16px;
 
-    @media screen and (max-width: config.$md) {
+    @media screen and (max-width: config.$sm) {
       grid-template-areas: "Backend"
                            "Infrastructure"
                            "Frontend"
@@ -63,7 +66,7 @@
     padding: 6px 16px;
     box-sizing: content-box;
 
-    @media screen and (max-width: config.$md) {
+    @media screen and (max-width: config.$sm) {
       grid-template-columns: 1fr;
     }
 

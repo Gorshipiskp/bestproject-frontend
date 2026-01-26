@@ -6,7 +6,7 @@
     export let technologies: string[];
 </script>
 
-<div style="grid-area: {title}" class="technologies_block">
+<div class="technologies_block" style="grid-area: {title}">
     <code>let <span class="technology_title">{title.toLowerCase()}</span>: string[] = [</code>
     <ul>
         {#if typeof technologies === "undefined" || technologies.length === 0}
@@ -16,7 +16,8 @@
                 {@const comma = technologies.indexOf(technology) !== technologies.length - 1 ? "," : ""}
                 <li>
                     <code>
-                        <MarkedUpText wrappers={{"all": ['"', `"${comma}`]}} defaultTextTag="code" textToMarkup={technology}/>
+                        <MarkedUpText wrappers={{"all": ['"', `"${comma}`]}} defaultTextTag="code"
+                                      textToMarkup={technology}/>
                     </code>
                 </li>
             {/each}

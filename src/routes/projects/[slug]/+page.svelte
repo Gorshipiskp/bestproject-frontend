@@ -93,13 +93,16 @@
         </div>
     </div>
 {:else}
-    <div class="project_page">
+
+    <div class="project_page" class:no_tabs={!curInfo.media}>
         <div class="title" style="background: {gradient}">
             {#if curInfo.media?.logo}
                 <img src="/projects/{curInfo.name}/{curInfo.media.logo}" alt="Логотип {curInfo.display_name}"/>
             {/if}
             <h1>{curInfo.display_name}</h1>
         </div>
+
+
         <div class="project_stack">
             <ul class="stack_list">
                 {#each curInfo.stack as technology, i (i)}
@@ -108,13 +111,20 @@
             </ul>
             <span class="dev_badge">{developmentTags[curInfo.tag_development]}</span>
         </div>
+
+
         <Description accentColor={gradientAccent} curDescription={curInfo.description}/>
         <PreHistory accentColor={gradientAccent} prehistory={curInfo.prehistory}/>
-        <Tabs tabs={curTabs}/>
+
+        {#if curInfo.media}
+            <Tabs tabs={curTabs}/>
+        {/if}
+
         <Features accentColor={gradientAccent} features={curInfo.features}/>
         <AdditionalInfo accentColor={gradientAccent} projectInfo={curInfo}/>
-        <Roadmap accentColor={gradientAccent} fullGradient={fullGradient} roadmap={curInfo.roadmap}/>
+
+        {#if curInfo.roadmap}
+            <Roadmap accentColor={gradientAccent} fullGradient={fullGradient} roadmap={curInfo.roadmap}/>
+        {/if}
     </div>
 {/if}
-
-<!-- todo: Проверить грамотность семантики -->

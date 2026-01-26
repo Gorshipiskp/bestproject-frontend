@@ -4,18 +4,20 @@ import type {ProjectGradientType, ProjectInfoType, RGB} from "./types";
 export type MarkupType = "code" | "project_reference" | "italic" | "text"
 export type MarkableType = Exclude<MarkupType, "text">
 export type MarkedUpTextType = { text: string, type: MarkupType }[]
-export type MarkableRegexesUpInfo = [regex: RegExp, toReplace: string | false]
+
+export type MarkableRegexesUpInfo = [regex: RegExp, toReplace: string[] | false]
 
 const projectsNames: string[] = Object.values(PROJECTS).flatMap(
-    (project: ProjectInfoType) : [string, string] => [project.display_name, project.name]
+    (project: ProjectInfoType): [string, string] => [project.display_name, project.name]
 )
 
 export const DEFAULT_GRADIENT: ProjectGradientType = [[0, 0, 0], [255, 255, 255]]
 
 const MARKABLES_REGEXES: Record<Exclude<MarkableType, "text">, MarkableRegexesUpInfo> = {
-    "code": [new RegExp("`[^`]+`"), "`"],
+
+    "code": [new RegExp("`[^`]*`"), ["`"]],
     "project_reference": [new RegExp(`${projectsNames.join("|")}`), false],
-    "italic": [new RegExp("//[^`]+//"), "//"],
+    "italic": [new RegExp("i/[^`]*/i"), ["i/", "/i"]],
 }
 
 let BRACKETED_MARKABLES_REGEXES: Record<MarkableType, MarkableRegexesUpInfo> = {} as Record<MarkableType, MarkableRegexesUpInfo>
@@ -43,7 +45,13 @@ export function markupText(text: string): MarkedUpTextType {
             let match: RegExpMatchArray | null;
 
             if ((match = markupRegex.exec(splitted)) !== null) {
-                let body: string = toReplace ? match[0].replaceAll(toReplace, "") : match[0]
+                let body: string = match[0]
+
+                if (toReplace) {
+                    for (const textToRemove of toReplace) {
+                        body = body.replaceAll(textToRemove, "")
+                    }
+                }
 
                 if (markupName === "project_reference") {
                     if (!isProjectExists(body)) console.warn("Проекта с названием " + body + " не существует")

@@ -7,6 +7,7 @@ import {BestRP} from "./projects/bestrp";
 import {BestFetch} from "./projects/bestfetch";
 import {BestTvGU} from "./projects/besttvgu";
 import {TvGUDataHub} from "./projects/tvgu_data_hub";
+import {BestBlockBlastFucker} from "./projects/bestblockblastfucker";
 
 // Почему не `.json`? Потому что TS в IDE не считывает нормально литералы из JSON
 
@@ -24,7 +25,7 @@ export const PEOPLE: PeopleType = {
 
 
 // `...` - Мелкий код
-// //...// - Курсив
+// i/.../i - Курсив
 // НАЗВАНИЕ_ПРОЕКТА - Автоматически делает ссылку на страницу проекта
 
 export const PROJECTS: ProjectsInfoType = {
@@ -35,5 +36,6 @@ export const PROJECTS: ProjectsInfoType = {
     "bestrp": BestRP,
     "bestmemories": BestMemories,
     "bestfetch": BestFetch,
+    "bestblockblastfucker": BestBlockBlastFucker,
     "tvgu_data_hub": TvGUDataHub
 }

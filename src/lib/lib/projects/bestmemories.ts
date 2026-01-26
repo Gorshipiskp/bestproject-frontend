@@ -1,41 +1,39 @@
 import type {ProjectInfoType} from "../types";
 
 export const BestMemories: ProjectInfoType = {
-    "name": "bestmemories",
     "available": false,
+    "close_year": 2022,
+    "creators": [],
+    "description": {},
+    "description_short": "Сервис для своих, созданный для хранения воспоминаний. Первый сайт с авторизацией через BestAccounts",
     "display_name": "BestMemories",
+    "features": {},
+    "github_link": false,
+    "gradient": [[27, 20, 100], [0, 113, 188]],
+    "license": "Unlicensed",
+    "media": {
+        "logo": "Логотип BestMemories.svg"
+    },
+    "monetized": "Planned",
+    "name": "bestmemories",
+    "prehistory": [
+        "..."
+    ],
+    "release_year": 2021,
+    "roadmap": false,
+    "size": "Small",
     "stack": [],
+    "tag_development": "Archived",
+    "tags": [
+        "WIP",
+        "Old"
+    ],
     "technologies": {
         "backend": [],
         "frontend": [],
         "design": [],
         "infrastructure": []
     },
-    "website_link": false,
-    "github_link": false,
-    "release_year": 2021,
-    "close_year": 2022,
-    "solo_project": true,
-    "creators": [],
-    "tags": [
-        "WIP",
-        "Old"
-    ],
-    "license": "Unlicensed",
-    "size": "Medium",
     "using": "",
-    "roadmap": {
-        "2025.09": []
-    },
-    "features": {},
-    "monetized": "Planned",
-    "media": {
-        "logo": "[] MAIN LOGO NEW.png"
-    },
-    "gradient": [[28, 29, 30], [38, 39, 40]],
-    "description_short": "",
-    "description": {},
-    "prehistory": [
-        "..."
-    ]
+    "website_link": false
 }

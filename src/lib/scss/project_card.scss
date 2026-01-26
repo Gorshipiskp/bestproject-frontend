@@ -7,11 +7,11 @@ $border-radius-card: 28px;
 
   display: grid;
   grid-template-areas:
-                "Image"
+                "Logo"
                 "Title"
                 "Description";
   grid-template-rows: 10fr 2fr 6fr;
-  max-height: config.dclamp(430, 480, px);
+  max-height: config.dclamp(410, 460, px);
   padding: 0;
   border-radius: $border-radius-card;
   justify-items: center;
@@ -19,9 +19,19 @@ $border-radius-card: 28px;
   background: #4e4e4e55;
   transition: 0.2s;
 
-  @media screen and (max-width: config.$md) {
+  @media screen and (max-width: config.$sm) {
     max-height: config.dclamp(300, 350, px);
     width: 100%;
+    max-width: 320px;
+  }
+
+  &.no_logo {
+    display: grid;
+    grid-template-areas:
+                "Title"
+                "Description";
+    grid-template-rows: auto auto;
+    padding: config.$gap * 1.5 config.$gap * 2;
   }
 
   &:hover {
@@ -31,23 +41,29 @@ $border-radius-card: 28px;
   }
 
   .project_card_logo {
+    grid-area: Logo;
+
     pointer-events: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    grid-area: Image;
     overflow: hidden;
     border-radius: $border-radius-card $border-radius-card 0 0;
     width: 100%;
     height: 100%;
 
     img {
+      aspect-ratio: 1 / 1;
       height: 80%;
       border-radius: 50%;
+
+      @media screen and (max-width: config.$sm) {
+        height: 80%;
+      }
     }
   }
 
-  .project_card_title {;
+  .project_card_title {
     @include config.text-shadow(0.05);
 
     grid-area: Title;
@@ -55,8 +71,12 @@ $border-radius-card: 28px;
     font-weight: 700;
     margin: 4px 0 0;
 
-    @media screen and (max-width: config.$md) {
-      font-size: config.auto-dclamp(2.1, rem);
+    text-align: center;
+    word-break: break-word;
+    padding: 2px 4px;
+
+    @media screen and (max-width: config.$sm) {
+      font-size: config.auto-dclamp(1.6, rem);
     }
   }
 
@@ -64,16 +84,17 @@ $border-radius-card: 28px;
     @include config.text-shadow(0.1);
 
     grid-area: Description;
-    line-height: 1.4;
+
+    line-height: 1.35;
     display: inline;
     align-self: start;
-    font-size: config.auto-dclamp(0.9, rem);
+    font-size: config.auto-dclamp(1, rem);
     margin-top: 6px;
     padding: 0 18px 0 18px;
     text-align: center;
 
-    @media screen and (max-width: config.$md) {
-      font-size: config.auto-dclamp(0.8, rem);
+    @media screen and (max-width: config.$sm) {
+      font-size: config.auto-dclamp(0.7, rem);
       font-weight: 450;
     }
   }

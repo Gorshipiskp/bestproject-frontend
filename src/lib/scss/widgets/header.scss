@@ -13,7 +13,7 @@
   z-index: 100;
   border-radius: 4px;
 
-  @media screen and (max-width: config.$md) {
+  @media screen and (max-width: config.$sm) {
     padding: 10px 12px;
   }
 
@@ -21,7 +21,7 @@
     font-size: config.auto-dclamp(1, rem);
     font-weight: 600;
 
-    @media screen and (max-width: config.$md) {
+    @media screen and (max-width: config.$sm) {
       font-size: config.auto-dclamp(0.85, rem);
     }
   }
@@ -38,7 +38,7 @@
       text-decoration: none;
       text-align: center;
 
-      @media screen and (max-width: config.$md) {
+      @media screen and (max-width: config.$sm) {
         font-size: config.auto-dclamp(0.85, rem);
       }
     }

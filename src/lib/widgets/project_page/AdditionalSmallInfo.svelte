@@ -18,6 +18,10 @@
     <SmallInfoField title="Лицензия">
         {#if projectInfo.license === "Private"}
             <span class="info_field">Не распространяется</span>
+
+        {:else if projectInfo.license === "Unlicensed"}
+            <span class="info_field">Лицензии нет</span>
+
         {:else}
             <span class="info_field">{projectInfo.license}</span>
         {/if}
